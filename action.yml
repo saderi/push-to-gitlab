@@ -1,0 +1,22 @@
+name: 'Push to Gitlab server'
+description: 'Push to change from Github repository to Gitlab server'
+author: 'Payam Saderi'
+branding:
+  icon: 'gitlab'
+  color: 'orenge'
+inputs:
+  gitlab_repository:
+    description: 'Gitlab repository'
+    required: true
+    type: 'string'
+secrets:
+  gitlab_token:
+    description: 'Gitlab token'
+    required: true
+runs:
+  using: 'ubuntu-latest'
+  steps:
+    - run: |
+          git config --global user.name "github-actions[bot]"
+          git remote add gitlab https://oauth2:${{ secrets.gitlab_token }}@${{ inputs.gitlab_repo }}
+          git push gitlab
