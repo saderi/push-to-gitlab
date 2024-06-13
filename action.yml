@@ -13,9 +13,10 @@ inputs:
     description: 'Gitlab token'
     required: true
 runs:
-  using: 'ubuntu-latest'
+  using: "composite"
   steps:
-    - run: |
+    - shell: bash
+      run: |
           git config --global user.name "github-actions[bot]"
           git remote add gitlab https://oauth2:${{ inputs.gitlab_token }}@${{ inputs.gitlab_repo }}
           git push gitlab
