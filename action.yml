@@ -1,9 +1,9 @@
 name: 'Push to Gitlab server'
-description: 'Push to change from Github repository to Gitlab server'
+description: 'Push changes from Github repository to Gitlab repository.'
 author: 'Payam Saderi'
 branding:
-  icon: 'gitlab'
-  color: 'orenge'
+  icon: arrow-up-circle
+  color: orange
 inputs:
   gitlab_repository:
     description: 'Gitlab repository'
